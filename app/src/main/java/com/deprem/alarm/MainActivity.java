@@ -1,4 +1,4 @@
-package com.labawsrh.aws.introscreen;
+package com.deprem.alarm;
 
 
 import android.content.Intent;
@@ -19,26 +19,23 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private TextToSpeech mTTS;
-    private String ses="Lütfen, 5 saniye içerisinde telefonunuzu düz bir zemine koyunuz. 5... 4... 3... 2... 1... 0. Alarm başlatılıyor.";
-    TextView t1;
-    ImageButton b1;
-    ImageButton b2;
-    CountDownTimer countDownTimer;
-    ImageView imageView;
-    Random r;
-    int[] images = {R.drawable.hayatucgenigorsel1, R.drawable.hayatucgenigorsel2, R.drawable.hayatucgenigorsel3, R.drawable.hayatucgenigorsel4};
+    private TextView tvAlarmDurum;
+    private ImageButton ibtnAlarmBaslat;
+    private CountDownTimer countDownTimer;
+    private ImageView ivHayatUcgeniGorseli;
+
+    private final String ses="Lütfen, 5 saniye içerisinde telefonunuzu düz bir zemine koyunuz. 5... 4... 3... 2... 1... 0. Alarm başlatılıyor.";
+    private int[] images = {R.drawable.hayatucgenigorsel1, R.drawable.hayatucgenigorsel2, R.drawable.hayatucgenigorsel3, R.drawable.hayatucgenigorsel4};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageView = (ImageView) findViewById(R.id.imageView2);
-        Random r = new Random();
-
-        imageView.setImageResource(images[r.nextInt(images.length)]);
-
-        t1 = findViewById(R.id.textView);
-        b1 = findViewById(R.id.alarmbuton);
+        Random random = new Random();
+        ivHayatUcgeniGorseli = findViewById(R.id.imageView2);
+        ivHayatUcgeniGorseli.setImageResource(images[random.nextInt(images.length)]);
+        tvAlarmDurum = findViewById(R.id.tvAlarmDurum);
+        ibtnAlarmBaslat = findViewById(R.id.ibtnAlarmBaslat);
 
         mTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -53,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Log.e("TTS", "Doğrulama başarısız");
                 }
-
             }
         });
 
@@ -61,52 +57,39 @@ public class MainActivity extends AppCompatActivity {
         countDownTimer = new CountDownTimer(11000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
-                t1.setTextSize(22f);
-                t1.setText("Telefonunuzu düz bir zemine koyunuz");
-
+                tvAlarmDurum.setTextSize(22f);
+                tvAlarmDurum.setText("Telefonunuzu düz bir zemine koyunuz");
                 if (millisUntilFinished < 6000){
-                    t1.setTextSize(35f);
-                    t1.setText(millisUntilFinished/1000 + "" );
+                    tvAlarmDurum.setTextSize(35f);
+                    tvAlarmDurum.setText(millisUntilFinished/1000 + "" );
                 }
-
             }
 
             @Override
             public void onFinish() {
-                t1.setText("Alarm Başlatılıyor");
-                Intent gecis = new Intent(MainActivity.this,AlarmEkrani.class);
+                tvAlarmDurum.setText("Alarm Başlatılıyor");
+                Intent gecis = new Intent(MainActivity.this, AlarmEkraniActivity.class);
                 startActivity(gecis);
                 finish();
-
-
-
             }
         };
-        b1.setOnClickListener(new View.OnClickListener() {
+
+        ibtnAlarmBaslat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 speak();
-
             }
         });
 
         gecisyap();
         gecisyapiki();
-
-
     }
 
 
     private void speak(){
-        String text = ses.toString();
         mTTS.setSpeechRate(0.90f);
-
-        mTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+        mTTS.speak(ses, TextToSpeech.QUEUE_FLUSH, null);
         countDownTimer.start();
-
-
     }
 
     @Override
@@ -119,24 +102,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gecisyap(){
-
         ImageButton b3 = (ImageButton) findViewById(R.id.alarmbuton2);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gecis = new Intent(MainActivity.this,HayatUcgeni.class);
+                Intent gecis = new Intent(MainActivity.this, HayatUcgeniActivity.class);
                 startActivity(gecis);
                 finish();
             }
         });
     }
     private void gecisyapiki(){
-
         ImageButton b4 = (ImageButton) findViewById(R.id.alarmbuton4);
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gecis = new Intent(MainActivity.this,UygulamaBilgi.class);
+                Intent gecis = new Intent(MainActivity.this, UygulamaBilgiActivity.class);
                 startActivity(gecis);
                 finish();
             }

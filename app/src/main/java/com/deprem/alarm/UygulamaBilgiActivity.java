@@ -1,4 +1,4 @@
-package com.labawsrh.aws.introscreen;
+package com.deprem.alarm;
 
 
 import android.content.Intent;
@@ -13,9 +13,10 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+
 import java.util.Locale;
 
-public class UygulamaBilgi extends AppCompatActivity {
+public class UygulamaBilgiActivity extends AppCompatActivity {
     private TextSwitcher textSwitcher;
     private ImageButton nextButton;
     private ImageButton backButton;
@@ -86,7 +87,7 @@ public class UygulamaBilgi extends AppCompatActivity {
         textSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
             @Override
             public View makeView() {
-                textView = new TextView(UygulamaBilgi.this);
+                textView = new TextView(UygulamaBilgiActivity.this);
                 textView.setGravity(Gravity.CENTER_HORIZONTAL);
                 return textView;
             }
@@ -145,7 +146,7 @@ public class UygulamaBilgi extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        Intent gecis = new Intent(UygulamaBilgi.this,MainActivity.class);
+        Intent gecis = new Intent(UygulamaBilgiActivity.this, MainActivity.class);
         startActivity(gecis);
         finish();
         super.onBackPressed();

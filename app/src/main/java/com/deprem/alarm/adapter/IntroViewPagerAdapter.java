@@ -1,4 +1,4 @@
-package com.labawsrh.aws.introscreen;
+package com.deprem.alarm.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.deprem.alarm.R;
+import com.deprem.alarm.model.ScreenItem;
 
 import java.util.List;
 

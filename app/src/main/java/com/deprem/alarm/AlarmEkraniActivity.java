@@ -1,4 +1,4 @@
-package com.labawsrh.aws.introscreen;
+package com.deprem.alarm;
 
 import android.content.Context;
 import android.hardware.Sensor;
@@ -12,7 +12,8 @@ import android.widget.Toast;
 import android.support.v7.app.AppCompatActivity;
 
 
-public class AlarmEkrani extends AppCompatActivity implements SensorEventListener {
+
+public class AlarmEkraniActivity extends AppCompatActivity implements SensorEventListener {
 
     TextView txt1,txt2,txt3;
     @Override
