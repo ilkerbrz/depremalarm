@@ -32,7 +32,7 @@
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvAlarmDurum"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"

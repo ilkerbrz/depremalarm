@@ -1,23 +1,22 @@
-package com.labawsrh.aws.introscreen;
+package com.deprem.alarm;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
+
 import java.util.Locale;
 
-public class HayatUcgeni extends AppCompatActivity {
+public class HayatUcgeniActivity extends AppCompatActivity {
     private TextSwitcher textSwitcher;
     private ImageButton nextButton;
     private ImageButton backButton;
@@ -98,7 +97,7 @@ public class HayatUcgeni extends AppCompatActivity {
         textSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
             @Override
             public View makeView() {
-                textView = new TextView(HayatUcgeni.this);
+                textView = new TextView(HayatUcgeniActivity.this);
                 textView.setGravity(Gravity.CENTER_HORIZONTAL);
                 return textView;
             }
@@ -158,7 +157,7 @@ public class HayatUcgeni extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        Intent gecis = new Intent(HayatUcgeni.this,MainActivity.class);
+        Intent gecis = new Intent(HayatUcgeniActivity.this, MainActivity.class);
         startActivity(gecis);
         finish();
         super.onBackPressed();

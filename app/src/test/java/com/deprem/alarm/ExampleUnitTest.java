@@ -1,4 +1,4 @@
-package com.labawsrh.aws.introscreen;
+package com.deprem.alarm;
 
 import org.junit.Test;
 

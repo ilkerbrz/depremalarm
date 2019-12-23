@@ -1,4 +1,4 @@
-package com.labawsrh.aws.introscreen;
+package com.deprem.alarm;
 
 
 
@@ -6,12 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     private static int  GECIS_SURESI= 3000;
 
-    public SplashScreen() {
+    public SplashActivity() {
     }
 
     @Override
@@ -27,7 +26,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent gecıs = new Intent(SplashScreen.this,IntroActivity.class);
+                Intent gecıs = new Intent(SplashActivity.this, IntroActivity.class);
                 startActivity(gecıs);
                 finish();
 

@@ -1,37 +1,37 @@
-package com.labawsrh.aws.introscreen;
+package com.deprem.alarm.model;
 
 public class ScreenItem {
 
-    String Title,Description;
-    int ScreenImg;
+    private String title, description;
+    private int screenImg;
 
     public ScreenItem(String title, String description, int screenImg) {
-        Title = title;
-        Description = description;
-        ScreenImg = screenImg;
+        this.title = title;
+        this.description = description;
+        this.screenImg = screenImg;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public void setScreenImg(int screenImg) {
-        ScreenImg = screenImg;
+        this.screenImg = screenImg;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public int getScreenImg() {
-        return ScreenImg;
+        return screenImg;
     }
 }
