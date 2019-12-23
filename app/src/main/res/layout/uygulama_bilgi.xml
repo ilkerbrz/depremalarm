@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/anasayfa"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Uygulamamızı Öğrenin"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Bilimsel açıklamalarla"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextSwitcher
+                android:id="@+id/textSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inAnimation="@android:anim/slide_in_left"
+                android:outAnimation="@android:anim/slide_out_right">
+
+            </TextSwitcher>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adım Doug Copp. Dünyanın en tecrübeli kurtarma birimi Amerikan Uluslararası Kurtarma Ekibinin Kurtarma şefi ve afet olayları müdürüyüm. Bu makaledeki bilgiler bir deprem anında hayat kurtaracaktır."
+                android:visibility="invisible" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/alarmbuton5"
+                android:layout_width="00dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/textAd"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:background="@drawable/geri"
+                android:foregroundGravity="center"
+                android:visibility="invisible" />
+
+            <ImageButton
+                android:id="@+id/alarmbuton3"
+                android:layout_width="00dp"
+                android:layout_height="80dp"
+                android:layout_below="@+id/textAd"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:background="@drawable/ileri"
+                android:foregroundGravity="center" /><![CDATA[
+
+            app:srcCompat="@drawable/ileri" />
+
+            ]]>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="false"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="25dp"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1.5" />
+
+            <ImageButton
+                android:id="@+id/alarmbuton2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/textAd"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:background="@drawable/speaker"
+                android:foregroundGravity="center" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="false"
+                android:layout_weight="1"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Sesli dinlemek için tıkla!"
+                android:textAlignment="center"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
