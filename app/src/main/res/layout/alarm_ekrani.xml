@@ -25,7 +25,7 @@
             android:layout_alignParentRight="true"
             android:foregroundGravity="center"
             android:gravity="center"
-            android:text="Uzmanından HAYAT üçgeni eğitimi"
+            android:text="Deprem alarmı şu an aktiftir"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/colorPrimary"
@@ -40,7 +40,7 @@
             android:layout_alignParentRight="true"
             android:foregroundGravity="center"
             android:gravity="center"
-            android:text="Doug Copp'un ağzından"
+            android:text="Lütfen telefonunuzu haraket ettirmeyiniz"
             android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/colorPrimary"
@@ -64,5 +64,13 @@
             android:layout_height="wrap_content"
             android:text="TextView" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button" />
+
     </LinearLayout>
+
 </LinearLayout>

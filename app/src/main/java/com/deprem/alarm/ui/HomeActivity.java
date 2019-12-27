@@ -1,0 +1,144 @@
+package com.deprem.alarm.ui;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+
+import com.deprem.alarm.R;
+import com.deprem.alarm.core.MyService;
+
+public class HomeActivity extends AppCompatActivity {
+
+    FragmentManager fm;;
+    Fragment fragment;
+    FragmentTransaction fragmentTransaction;
+
+    private ActionBarDrawerToggle drawerToggle;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+
+
+
+        setUpToolBar();
+
+        drawerLayout = findViewById(R.id.drawer);
+
+        navigationView = findViewById(R.id.nav_view);
+
+        // add the tip of the day fragment
+        fm = getSupportFragmentManager();
+
+        fragment = fm.findFragmentById(R.id.fragment_container);
+
+        if(fragment == null) {
+//            fragment = new TipOfTheDayFragment();
+            fragment = new ContactsConfigFragment();
+            fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
+        }
+
+
+        //set click listener on nav menu items
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //Checking if the item is in checked state or not, if not make it in checked state
+                if(item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+
+                //Closing drawer on item click
+                drawerLayout.closeDrawers();
+
+                //Check to see which item was being clicked and perform appropriate action
+                switch (item.getItemId()){
+
+                    case R.id.trusted_contact_menu:
+                        fragment = new ContactsConfigFragment();
+                        fragmentTransaction = fm.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+                        return true;
+
+                    case R.id.about:
+                        fragment = new AboutFragment();
+                        fragmentTransaction = fm.beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+                        return true;
+
+                    default:
+                        return true;
+                }
+            }
+        });
+
+        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open, R.string.drawer_close){
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                // Code here will be triggered once the drawer closes as we don't want anything to happen so we leave this blank
+                super.onDrawerClosed(drawerView);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                // Code here will be triggered once the drawer open as we don't want anything to happen so we leave this blank
+
+                super.onDrawerOpened(drawerView);
+            }
+        };
+
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+
+
+        // start service to starting a broadcast receiver
+        Intent service = new Intent(getApplicationContext(), MyService.class);
+        getApplicationContext().startService(service);
+
+    }
+
+    private void setUpToolBar() {
+        toolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (isNavDrawerOpen()) {
+            closeNavDrawer();
+        } else {
+            super.onBackPressed();
+        }
+
+
+    }
+
+    protected boolean isNavDrawerOpen() {
+        return drawerLayout != null && drawerLayout.isDrawerOpen(GravityCompat.START);
+    }
+
+    protected void closeNavDrawer() {
+        if (drawerLayout != null) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+}
