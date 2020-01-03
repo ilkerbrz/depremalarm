@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.deprem.alarm.ui.HomeActivity;
+
 import java.util.Locale;
 import java.util.Random;
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton ibtnAlarmBaslat;
     private CountDownTimer countDownTimer;
     private ImageView ivHayatUcgeniGorseli;
+    private ImageButton btnayarlar;
 
     private final String ses="Lütfen, 5 saniye içerisinde telefonunuzu düz bir zemine koyunuz. 5... 4... 3... 2... 1... 0. Alarm başlatılıyor.";
     private int[] images = {R.drawable.hayatucgenigorsel1, R.drawable.hayatucgenigorsel2, R.drawable.hayatucgenigorsel3, R.drawable.hayatucgenigorsel4};
@@ -36,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         ivHayatUcgeniGorseli.setImageResource(images[random.nextInt(images.length)]);
         tvAlarmDurum = findViewById(R.id.tvAlarmDurum);
         ibtnAlarmBaslat = findViewById(R.id.ibtnAlarmBaslat);
+        btnayarlar = findViewById(R.id.alarmbuton);
+
+        btnayarlar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gecis = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(gecis);
+                finish();
+            }
+        });
 
         mTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override

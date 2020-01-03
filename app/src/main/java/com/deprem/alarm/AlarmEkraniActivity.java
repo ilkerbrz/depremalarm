@@ -8,17 +8,15 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.deprem.alarm.ui.HomeActivity;
 
 
 public class AlarmEkraniActivity extends AppCompatActivity implements SensorEventListener {
     Button button;
 
+    SensorManager sensorYoneticisi;
     TextView txt1,txt2,txt3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +26,11 @@ public class AlarmEkraniActivity extends AppCompatActivity implements SensorEven
         txt1=(TextView)findViewById(R.id.textView5);
         txt2=(TextView)findViewById(R.id.textView11);
         txt3=(TextView)findViewById(R.id.textView13);
-        button = (Button)findViewById(R.id.button);
 
 
 
-        SensorManager sensorYoneticisi=(SensorManager)getSystemService(Context.SENSOR_SERVICE);
+
+        sensorYoneticisi =(SensorManager)getSystemService(Context.SENSOR_SERVICE);
         Sensor yonSensor=sensorYoneticisi.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         Sensor isik=sensorYoneticisi.getDefaultSensor(Sensor.TYPE_LIGHT);
         Sensor dogrusalaci=sensorYoneticisi.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
@@ -43,14 +41,7 @@ public class AlarmEkraniActivity extends AppCompatActivity implements SensorEven
 
 
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent gecis = new Intent(AlarmEkraniActivity.this, HomeActivity.class);
-                startActivity(gecis);
-                finish();
-            }
-        });
+
 
     }
 
@@ -71,12 +62,29 @@ public class AlarmEkraniActivity extends AppCompatActivity implements SensorEven
 
             Toast.makeText(this, "deprem oluyor", Toast.LENGTH_SHORT).show();
 
+            Intent gecis = new Intent(AlarmEkraniActivity.this, DepremAlgilandi.class);
+            startActivity(gecis);
+            finish();
+
         }
+
 
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorYoneticisi.unregisterListener(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
     }
 }

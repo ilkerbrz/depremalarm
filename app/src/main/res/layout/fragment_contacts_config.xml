@@ -4,24 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/anasayfa">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/trustedContactList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp">
 
     </android.support.v7.widget.RecyclerView>
 
-    <ImageView
-        android:id="@+id/emptyView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="Empty State of Recycler View"
-        android:scaleType="centerCrop"
-        android:src="@drawable/trusted_contact">
-    </ImageView>
 
+    <TextView
+        android:id="@+id/tvListeBos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="150dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="Bir depreme yakalandığınızda eğer ki enkaz altında kalırsanız o anki konumunuzun gönderileceği kişiyi veya kişileri seçin. \n \nLISTENIZ ŞU ANDA BOŞ!"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addContact"
@@ -29,9 +38,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        app:fabSize="normal"
         android:src="@drawable/ic_person_add"
-        android:tint="@android:color/white" />
+        android:tint="@android:color/white"
+        app:fabSize="normal" />
 
 
 </android.support.design.widget.CoordinatorLayout>

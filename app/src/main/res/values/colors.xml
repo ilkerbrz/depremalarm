@@ -2,17 +2,17 @@
 <resources>
     <color name="colorPrimary">#555555</color>
     <color name="colorPrimaryDark">#181A24</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#9B9B9B</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorTransparentWhite">#cccccc</color>
+    <color name="colorTransparentWhite">#CCCCCC</color>
     <color name="secondaryColor">#ffab91</color>
     <color name="secondaryLightColor">#ffddc1</color>
-    <color name="secondaryDarkColor">#c97b63</color>
+    <color name="secondaryDarkColor">#000000</color>
     <color name="secondaryTextColor">#000000</color>
     <color name="primaryTextColor">#000000</color>
     <color name="primaryColor">#e64a19</color>
     <color name="primaryLightColor">#ff7d47</color>
-    <color name="primaryDarkColor">#ac0800</color>
+    <color name="primaryDarkColor">#AC0800</color>
 
     <!-- colors for button style -->
 

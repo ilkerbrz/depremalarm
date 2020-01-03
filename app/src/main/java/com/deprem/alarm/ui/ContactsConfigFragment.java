@@ -15,7 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.deprem.alarm.R;
 import com.deprem.alarm.database.AppDatabase;
@@ -33,7 +33,8 @@ public class ContactsConfigFragment extends Fragment {
     AppDatabase db;
     ContactAdapter adapter;
     RecyclerView recyclerView;
-    ImageView emptyView;
+
+    TextView textView;
 
     public ContactsConfigFragment() {
         // Required empty public constructor
@@ -50,7 +51,8 @@ public class ContactsConfigFragment extends Fragment {
         db = AppDatabase.getAppDatabase(getActivity().getApplicationContext());
         contacts = db.contactDao().getAllContacts();
 
-        emptyView = view.findViewById(R.id.emptyView);
+
+        textView = view.findViewById(R.id.tvListeBos);
 
         recyclerView = view.findViewById(R.id.trustedContactList);
         recyclerView.setHasFixedSize(true);
@@ -78,7 +80,7 @@ public class ContactsConfigFragment extends Fragment {
                 contacts.remove(position);
                 recyclerView.removeViewAt(position);
                 adapter.notifyDataSetChanged();
-                Snackbar.make(view.findViewById(R.id.root), "Removed Contact", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(view.findViewById(R.id.root), "Numara Silindi", Snackbar.LENGTH_SHORT).show();
                 checkEmptyState();
             }
         });
@@ -123,12 +125,14 @@ public class ContactsConfigFragment extends Fragment {
     private void checkEmptyState(){
         if (contacts.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
-            emptyView.setVisibility(View.VISIBLE);
+            textView.setVisibility(View.VISIBLE);
         }
         else {
+            textView.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.GONE);
         }
     }
+
+
 
 }
